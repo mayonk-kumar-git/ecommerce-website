@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Banner from "../components/Home/Banner/Banner";
 import Sale from "../components/Home/Sale";
 import NewArrivals from "../components/Home/NewArrivals";
@@ -6,7 +7,13 @@ import BestSellers from "../components/Home/BestSellers";
 import ProductOfTheYear from "../components/Home/ProductOfTheYear";
 import SpecialOffers from "../components/Home/SpecialOffers";
 
-function Home() {
+const Home = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+    });
+  }, []);
+
   return (
     <>
       <Banner />
@@ -20,6 +27,6 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export default Home;
