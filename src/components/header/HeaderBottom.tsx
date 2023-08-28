@@ -15,14 +15,18 @@ const HeaderBottom = () => {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const navigate = useNavigate();
-  const ref = useRef<HTMLDivElement>(null);
+  const refCategory = useRef<HTMLDivElement>(null);
+  const refUser = useRef<HTMLDivElement>(null);
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
-      if (show && !ref.current?.contains(e.target as Node)) {
+      if (show && !refCategory.current?.contains(e.target as Node)) {
         setShow(false);
       }
+      if (showUser && !refUser.current?.contains(e.target as Node)) {
+        setShowUser(false);
+      }
     });
-  }, [show, ref]);
+  }, [show, refCategory, showUser, refUser]);
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -41,7 +45,7 @@ const HeaderBottom = () => {
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full px-4 pb-4 lg:pb-0 h-full lg:h-24">
           <div
             onClick={() => setShow(!show)}
-            ref={ref}
+            ref={refCategory}
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
             <HiOutlineMenuAlt4 className="w-5 h-5" />
@@ -128,16 +132,20 @@ const HeaderBottom = () => {
             )}
           </div>
           <div className="flex gap-4 mt-2 lg:mt-0 items-center pr-6 cursor-pointer relative">
-            <div onClick={() => setShowUser(!showUser)} className="flex">
+            <div
+              ref={refUser}
+              onClick={() => setShowUser(!showUser)}
+              className="flex"
+            >
               <FaUser />
               <FaCaretDown />
             </div>
             {showUser && (
               <motion.ul
-                initial={{ y: 30, opacity: 0 }}
+                initial={{ y: -25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="absolute top-6 left-0 z-50 bg-primeColor w-44 text-[#767676] h-auto p-4 pb-6"
+                className="absolute top-10 left-0 z-50 bg-primeColor w-44 text-[#767676] h-auto p-4 pb-6 rounded-[0.5rem]"
               >
                 <Link to="/signin">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
@@ -151,9 +159,6 @@ const HeaderBottom = () => {
                 </Link>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
                   Profile
-                </li>
-                <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Others
                 </li>
               </motion.ul>
             )}

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Header from "../components/pageProps/Header";
 import Pagination from "../components/pageProps/shopPage/Pagination";
 import ProductBanner from "../components/pageProps/shopPage/ProductBanner";
@@ -6,12 +6,6 @@ import ShopSideNav from "../components/pageProps/shopPage/ShopSideNav";
 
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(12);
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-    });
-  }, []);
 
   const itemsPerPageFromBanner = (itemsPerPage: number) => {
     setItemsPerPage(itemsPerPage);

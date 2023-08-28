@@ -5,7 +5,7 @@ import Button from "../designLayouts/Button";
 const ProductOfTheYear = () => {
   return (
     <Link to="/shop">
-      <div className="w-full h-80 mb-20 bg-[#f3f3f3] md:bg-transparent relative font-titleFont">
+      <div className="w-full h-80 mb-20 bg-[#383d43] md:bg-transparent relative font-titleFont">
         <img
           className="w-full h-full object-cover hidden md:inline-block"
           src={productOfTheYear}
