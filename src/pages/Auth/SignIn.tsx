@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoLight } from "../../assets/images/imageAssets";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "../../firebase/firebase";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/userSlice";
 
 const SignIn = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   // ============= Initial State Start here =============
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -24,7 +32,7 @@ const SignIn = () => {
     setErrPassword("");
   };
   // ============= Event Handler End here ===============
-  const handleSignUp = (e: any) => {
+  const handleSignUp = async (e: any) => {
     e.preventDefault();
 
     if (!email) {
@@ -36,9 +44,46 @@ const SignIn = () => {
     }
     // ============== Getting the value ==============
     if (email && password) {
-      setSuccessMsg(
-        `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-      );
+      try {
+        setIsLoading(true);
+        const response = await signInWithEmailAndPassword(
+          auth,
+          email,
+          password
+        );
+        const uid = response.user.uid;
+        const ref = doc(db, "userInfoDB", uid);
+        const userData = (await getDoc(ref)).data();
+
+        dispatch(
+          setUser({
+            _id: uid,
+            name: userData?.name,
+            phone: userData?.phone,
+            mailId: userData?.mailId,
+            password: userData?.password,
+            address: userData?.address,
+            city: userData?.city,
+            country: userData?.country,
+            zip: userData?.zip,
+          })
+        );
+
+        setSuccessMsg(
+          `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+        );
+        setIsLoading(false);
+        navigate("/profile");
+      } catch (error: any) {
+        if (error.message.includes("auth/user-not-found")) {
+          alert("User not found!! Try creating new account");
+          navigate("/signup");
+        } else {
+          console.error("error in auth: ", error.message);
+          alert("Some error occered ;) Please try again");
+        }
+      }
+
       setEmail("");
       setPassword("");
     }
@@ -119,12 +164,12 @@ const SignIn = () => {
             <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
               {successMsg}
             </p>
-            <Link to="/signup">
+            <Link to="/profile">
               <button
                 className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
               >
-                Sign Up
+                Profile
               </button>
             </Link>
           </div>
@@ -177,7 +222,11 @@ const SignIn = () => {
 
                 <button
                   onClick={handleSignUp}
-                  className="bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md  duration-300"
+                  className={`${
+                    !isLoading
+                      ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
+                      : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
+                  } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                 >
                   Sign In
                 </button>

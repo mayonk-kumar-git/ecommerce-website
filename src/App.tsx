@@ -14,12 +14,13 @@ import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
 import SignUp from "./pages/Auth/SignUp";
 import SignIn from "./pages/Auth/SignIn";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
     <>
       <Header />
-      <HeaderBottom />
+      {/* <HeaderBottom /> */}
       <SidePanel />
       <Routes>
         {/* =================== Navlink Start here ================== */}
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/profile" element={<Profile />} />
         {/* =================== Navlink End here ==================== */}
         <Route path="/product/:_id" element={<ProductDetails />}></Route>
         <Route path="/offer" element={<Offer />}></Route>

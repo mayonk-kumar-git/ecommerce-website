@@ -1,36 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import UserInfo from "../customDatatype/UserInfo";
-import { auth, db } from "../firebase/firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { setDoc, doc, getDoc } from "firebase/firestore";
 
-interface CartState {
+interface UserState {
   user: UserInfo;
   isLoggedIn: boolean;
 }
 
-interface SignUpUserProps {
-  userInfo: {
-    name: string;
-    phone: string;
-    mailId: string;
-    password: string;
-    address: string;
-    city: string;
-    country: string;
-    zip: string;
-  };
-  setIsLoading: (arg0: boolean) => void;
-}
-interface SignInUserProps {
-  userInfo: {
-    mailId: string;
-    password: string;
-  };
-  setIsLoading: (arg0: boolean) => void;
+interface SignUpInUserProps {
+  _id: string;
+  name: string;
+  phone: string;
+  mailId: string;
+  password: string;
+  address: string;
+  city: string;
+  country: string;
+  zip: string;
 }
 
 const emptyUserInfo: UserInfo = {
@@ -45,7 +30,7 @@ const emptyUserInfo: UserInfo = {
   zip: "",
 };
 
-const initialState: CartState = {
+const initialState: UserState = {
   user: emptyUserInfo,
   isLoggedIn: false,
 };
@@ -54,26 +39,9 @@ export const userSlice = createSlice({
   name: "userInfo",
   initialState,
   reducers: {
-    signUpUser: (state, action: PayloadAction<SignUpUserProps>) => {
-      action.payload.setIsLoading(true);
-      const userInfo = action.payload.userInfo;
-      createUserWithEmailAndPassword(auth, userInfo.mailId, userInfo.password)
-        .then(async (response) => {
-          console.log(response.user);
-          state.user._id = response.user.uid;
-          const ref = doc(db, "userInfoDB", response.user.uid);
-          setDoc(ref, userInfo)
-            .then((res) => {
-              console.log("user data stored successfully");
-            })
-            .catch((err) => {
-              console.error("error in db: ", err.message);
-            });
-        })
-        .catch((error) => {
-          console.error("error in auth: ", error.message);
-        });
-
+    setUser: (state, action: PayloadAction<SignUpInUserProps>) => {
+      const userInfo = action.payload;
+      state.user._id = userInfo._id;
       state.user.name = userInfo.name;
       state.user.phone = userInfo.phone;
       state.user.mailId = userInfo.mailId;
@@ -82,33 +50,16 @@ export const userSlice = createSlice({
       state.user.city = userInfo.city;
       state.user.country = userInfo.country;
       state.user.zip = userInfo.zip;
-
-      action.payload.setIsLoading(false);
+      //==================================================
+      state.isLoggedIn = true;
     },
-    signInUser: (state, action: PayloadAction<SignInUserProps>) => {
-      action.payload.setIsLoading(true);
-      const userInfo = action.payload.userInfo;
-      signInWithEmailAndPassword(auth, userInfo.mailId, userInfo.password)
-        .then(async (response) => {
-          console.log(response.user);
-          state.user._id = response.user.uid;
-          const ref = doc(db, "userInfoDB", response.user.uid);
-          getDoc(ref)
-            .then((res) => {
-              console.log("user data found", res.data());
-            })
-            .catch((err) => {
-              console.error("error in db: ", err.message);
-            });
-        })
-        .catch((error) => {
-          console.error("error in auth: ", error.message);
-        });
 
-      action.payload.setIsLoading(false);
+    removeUserInfo: (state) => {
+      state.user = emptyUserInfo;
+      state.isLoggedIn = false;
     },
   },
 });
 
-export const { signUpUser } = userSlice.actions;
+export const { setUser, removeUserInfo } = userSlice.actions;
 export default userSlice.reducer;

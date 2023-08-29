@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoLight } from "../../assets/images/imageAssets";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/userSlice";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../firebase/firebase";
+import { setDoc, doc } from "firebase/firestore";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   // ============= Initial State Start here =============
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [clientName, setClientName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
@@ -68,7 +76,7 @@ const SignUp = () => {
   };
   // ================= Email Validation End here ===============
 
-  const handleSignUp = (e: any) => {
+  const handleSignUp = async (e: any) => {
     e.preventDefault();
     if (checked) {
       if (!clientName) {
@@ -115,9 +123,57 @@ const SignUp = () => {
         country &&
         zip
       ) {
-        setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to M&M Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
-        );
+        setIsLoading(true);
+        var uid: string;
+        try {
+          const response = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+          console.log("Here: ", response.user);
+          uid = response.user.uid;
+          console.log("uid: ", uid);
+          const ref = doc(db, "userInfoDB", uid);
+          await setDoc(ref, {
+            name: clientName,
+            phone: phone,
+            mailId: email,
+            password: password,
+            address: address,
+            city: city,
+            country: country,
+            zip: zip,
+          });
+          dispatch(
+            setUser({
+              _id: uid,
+              name: clientName,
+              phone: phone,
+              mailId: email,
+              password: password,
+              address: address,
+              city: city,
+              country: country,
+              zip: zip,
+            })
+          );
+          console.log("user data stored successfully");
+          setSuccessMsg(
+            `Hello dear ${clientName}, Welcome you to M&M Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+          );
+          setIsLoading(false);
+          navigate("/profile");
+        } catch (error: any) {
+          if (error.message.includes("auth/email-already-in-use")) {
+            alert("User Already exist try signing in!!");
+            navigate("/signin");
+          } else {
+            console.error("error: ", error.message);
+            alert("Some error occered ;) Please try again");
+          }
+        }
+        setIsLoading(false);
         setClientName("");
         setEmail("");
         setPhone("");
@@ -387,7 +443,7 @@ const SignUp = () => {
                 <button
                   onClick={handleSignUp}
                   className={`${
-                    checked
+                    checked && !isLoading
                       ? "bg-primeColor hover:bg-black hover:text-white cursor-pointer"
                       : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
                   } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
