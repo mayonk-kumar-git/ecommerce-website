@@ -49,6 +49,7 @@ export const SplOfferData: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -58,6 +59,7 @@ export const SplOfferData: Product[] = [
     price: "180.00",
     color: "Gray",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -67,6 +69,7 @@ export const SplOfferData: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 3,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -76,6 +79,7 @@ export const SplOfferData: Product[] = [
     price: "220.00",
     color: "Black",
     badge: true,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
 ];
@@ -91,6 +95,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -100,6 +105,7 @@ export const paginationItems: Product[] = [
     price: "180.00",
     color: "Gray",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -109,6 +115,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -118,6 +125,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -127,6 +135,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -136,6 +145,7 @@ export const paginationItems: Product[] = [
     price: "180.00",
     color: "Gray",
     badge: false,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -145,6 +155,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -154,6 +165,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -163,6 +175,7 @@ export const paginationItems: Product[] = [
     price: "44.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -172,6 +185,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -181,6 +195,7 @@ export const paginationItems: Product[] = [
     price: "80.00",
     color: "Mixed",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -190,6 +205,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -199,6 +215,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 4.3,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
 
@@ -209,6 +226,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -218,6 +236,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -227,6 +246,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -236,6 +256,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: false,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -245,6 +266,7 @@ export const paginationItems: Product[] = [
     price: "44.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -254,6 +276,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -263,6 +286,7 @@ export const paginationItems: Product[] = [
     price: "80.00",
     color: "Mixed",
     badge: true,
+    rating: 4.6,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -272,6 +296,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 4.6,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -281,6 +306,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -290,6 +316,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -299,6 +326,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -308,6 +336,7 @@ export const paginationItems: Product[] = [
     price: "180.00",
     color: "Gray",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -317,6 +346,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 4.7,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -326,6 +356,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -335,6 +366,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -344,6 +376,7 @@ export const paginationItems: Product[] = [
     price: "180.00",
     color: "Gray",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -353,6 +386,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -362,6 +396,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: false,
+    rating: 4.7,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -371,6 +406,7 @@ export const paginationItems: Product[] = [
     price: "44.00",
     color: "Black",
     badge: true,
+    rating: 4.3,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -380,6 +416,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -389,6 +426,7 @@ export const paginationItems: Product[] = [
     price: "80.00",
     color: "Mixed",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -398,6 +436,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -407,6 +446,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 4.3,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -416,6 +456,7 @@ export const paginationItems: Product[] = [
     price: "60.00",
     color: "Mixed",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -425,6 +466,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -434,6 +476,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: false,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -443,6 +486,7 @@ export const paginationItems: Product[] = [
     price: "44.00",
     color: "Black",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -452,6 +496,7 @@ export const paginationItems: Product[] = [
     price: "250.00",
     color: "Black",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -461,6 +506,7 @@ export const paginationItems: Product[] = [
     price: "80.00",
     color: "Mixed",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -470,6 +516,7 @@ export const paginationItems: Product[] = [
     price: "25.00",
     color: "Mixed",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -479,6 +526,7 @@ export const paginationItems: Product[] = [
     price: "220.00",
     color: "Black",
     badge: true,
+    rating: 4,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -488,6 +536,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 4.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
   {
@@ -497,6 +546,7 @@ export const paginationItems: Product[] = [
     price: "35.00",
     color: "Blank and White",
     badge: true,
+    rating: 3.5,
     des: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis.",
   },
 ];

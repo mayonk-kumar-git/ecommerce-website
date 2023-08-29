@@ -60,11 +60,12 @@ const Product: React.FC<ProductDatatype> = (props) => {
           </h2>
           <p className="text-[#767676] text-[14px]">${props.price}</p>
         </div>
-        <div>
+        <div className="flex items-center justify-between">
           <p className="text-[#767676] text-[14px]">{props.color}</p>
-          <div className="mt-[1rem]" onClick={() => handleAddToCart(props)}>
-            <Button text="Add to Cart" />
-          </div>
+          <p className="text-[#767676] text-[14px]">{props.rating}/5</p>
+        </div>
+        <div className="mt-[1rem]" onClick={() => handleAddToCart(props)}>
+          <Button text="Add to Cart" />
         </div>
       </div>
     </div>

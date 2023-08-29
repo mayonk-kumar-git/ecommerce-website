@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../components/pageProps/Header";
@@ -27,6 +27,12 @@ const Profile = () => {
   const userInfo = useSelector((state: any) => state.userReducer.user);
   const isLoggedIn = useSelector((state: any) => state.userReducer.isLoggedIn);
 
+  useEffect(() => {
+    if (!isLoggedIn) {
+      navigate("/signin");
+    }
+  }, [isLoggedIn]);
+
   const handleSignOut = async () => {
     try {
       await signOut(auth);
@@ -36,27 +42,23 @@ const Profile = () => {
     }
   };
 
-  if (!isLoggedIn) {
-    navigate("/signin");
-  } else {
-    return (
-      <div className="max-w-container mx-auto px-4">
-        <Header title="Profile" />
-        <div className="w-full flex items-center justify-center">
-          <div className="border-[1px] border-primeColor rounded-[1rem] p-[5rem] mb-[1rem]">
-            {Object.entries(userInfo)
-              .filter(([key]) => key != "_id" && key != "password")
-              .map(([label, value]) => (
-                <InfoBlock key={label + value} label={label} value={value} />
-              ))}
-            <div onClick={handleSignOut}>
-              <Button text="Sign out" />
-            </div>
+  return (
+    <div className="max-w-container mx-auto px-4">
+      <Header title="Profile" />
+      <div className="w-full flex items-center justify-center">
+        <div className="border-[1px] border-primeColor rounded-[1rem] p-[5rem] mb-[1rem]">
+          {Object.entries(userInfo)
+            .filter(([key]) => key != "_id" && key != "password")
+            .map(([label, value]: [string, any]) => (
+              <InfoBlock key={label + value} label={label} value={value} />
+            ))}
+          <div onClick={handleSignOut}>
+            <Button text="Sign out" />
           </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default Profile;

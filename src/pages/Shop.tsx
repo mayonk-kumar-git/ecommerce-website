@@ -7,6 +7,7 @@ import HeaderBottom from "../components/header/HeaderBottom";
 
 const Shop = () => {
   const [itemsPerPage, setItemsPerPage] = useState<number>(12);
+  const [sortBy, setSortBy] = useState<string>("Relevance");
 
   const itemsPerPageFromBanner = (itemsPerPage: number) => {
     setItemsPerPage(itemsPerPage);
@@ -23,8 +24,12 @@ const Shop = () => {
             <ShopSideNav />
           </div>
           <div className="w-full mdl:w-[80%] lgl:w-[75%] h-full flex flex-col gap-10">
-            <ProductBanner itemsPerPageFromBanner={itemsPerPageFromBanner} />
-            <Pagination itemsPerPage={itemsPerPage} />
+            <ProductBanner
+              itemsPerPageFromBanner={itemsPerPageFromBanner}
+              setSortBy={setSortBy}
+              sortBy={sortBy}
+            />
+            <Pagination itemsPerPage={itemsPerPage} sortBy={sortBy} />
           </div>
         </div>
         {/* ================= Products End here ===================== */}

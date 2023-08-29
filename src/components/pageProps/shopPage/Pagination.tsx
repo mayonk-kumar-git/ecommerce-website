@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
 import Product from "../../Products/Product";
 import { paginationItems } from "../../../constants/constants";
@@ -6,13 +6,13 @@ import ProductDataType from "../../../customDatatype/Product";
 
 interface PaginationProps {
   itemsPerPage: number;
+  sortBy: string;
 }
 
 interface ItemsProps {
   currentItems: ProductDataType[];
 }
 
-const items = paginationItems;
 const Items: React.FC<ItemsProps> = ({ currentItems }) => {
   return (
     <>
@@ -27,6 +27,7 @@ const Items: React.FC<ItemsProps> = ({ currentItems }) => {
               color={item.color}
               badge={item.badge}
               des={item.des}
+              rating={item.rating}
             />
           </div>
         ))}
@@ -34,7 +35,42 @@ const Items: React.FC<ItemsProps> = ({ currentItems }) => {
   );
 };
 
-const Pagination: React.FC<PaginationProps> = ({ itemsPerPage }) => {
+const Pagination: React.FC<PaginationProps> = ({ itemsPerPage, sortBy }) => {
+  const [items, setItems] = useState<ProductDataType[]>(paginationItems);
+  useEffect(() => {
+    switch (sortBy) {
+      case "Price [low - high]": {
+        const orderedItemList = items.slice().sort((a, b) => {
+          const priceA = parseFloat(a.price);
+          const priceB = parseFloat(b.price);
+          return priceA - priceB;
+        });
+        setItems(orderedItemList);
+        break;
+      }
+      case "Price [high - low]": {
+        const orderedItemList = items.slice().sort((a, b) => {
+          const priceA = parseFloat(a.price);
+          const priceB = parseFloat(b.price);
+          return priceB - priceA;
+        });
+        setItems(orderedItemList);
+        break;
+      }
+      case "Rating": {
+        const orderedItemList = items.slice().sort((a, b) => {
+          return b.rating - a.rating;
+        });
+        setItems(orderedItemList);
+        break;
+      }
+      default: {
+        setItems(paginationItems);
+        break;
+      }
+    }
+  }, [sortBy]);
+
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);

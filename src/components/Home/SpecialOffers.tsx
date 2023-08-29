@@ -1,18 +1,32 @@
 import Heading from "../Products/Heading";
 import Product from "../Products/Product";
-import {
-  spfOne,
-  spfTwo,
-  spfThree,
-  spfFour,
-} from "../../assets/images/imageAssets";
+// import {
+//   spfOne,
+//   spfTwo,
+//   spfThree,
+//   spfFour,
+// } from "../../assets/images/imageAssets";
+import { SplOfferData } from "../../constants/constants";
+import ProductDataType from "../../customDatatype/Product";
 
 const SpecialOffers = () => {
   return (
     <div className="w-full pb-20">
       <Heading heading="Special Offers" />
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lgl:grid-cols-3 xl:grid-cols-4 gap-10">
-        <Product
+        {SplOfferData.map((product: ProductDataType) => (
+          <Product
+            _id={product._id}
+            img={product.img}
+            productName={product.productName}
+            price={product.price}
+            color={product.color}
+            badge={product.badge}
+            des={product.des}
+            rating={product.rating}
+          />
+        ))}
+        {/* <Product
           _id={1101}
           img={spfOne}
           productName="Cap for Boys"
@@ -47,7 +61,7 @@ const SpecialOffers = () => {
           color="Black"
           badge={true}
           des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
-        />
+        /> */}
       </div>
     </div>
   );
