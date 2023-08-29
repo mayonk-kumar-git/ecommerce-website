@@ -1,28 +1,21 @@
-# React + TypeScript + Vite
+# Totality Corp Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## [Deployed website](https://64edc48b3b05b700087c1088--dreamy-daffodil-a61d4e.netlify.app/)
 
-Currently, two official plugins are available:
+# Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React (Typescript)
+- Redux
+- Firebase
 
-## Expanding the ESLint configuration
+# Challenge Target accomplished
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- ✅ Product Listing: Display a variety of products with images, names, prices, and "Add to Cart" buttons. Implement filters to allow users to sort products by category, price range, or ratings.
+- ✅ Shopping Cart: Implement a cart section to display the added products, quantities, and total cost. Allow users to increase, decrease, or remove items from the cart. Display real-time updates of the cart total and item count.
+- ✅ Checkout: Implement a checkout process that calculates the total cost of items in the cart. Allow users to enter shipping information and payment details.
+- ✅ Responsive Design: Ensure the website is responsive and works seamlessly on both desktop and mobile devices.
+  Optimize the layout for different screen sizes.
 
-- Configure the top-level `parserOptions` property like this:
+### Additional Challenges(optional)
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-# totalitycorp-frontend-challenge
+- ✅ User Authentication: Provide user registration and login functionalities. Display the user's name and avatar when logged in.
