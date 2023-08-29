@@ -4,13 +4,11 @@ import { ImList } from "react-icons/im";
 import { GoTriangleDown } from "react-icons/go";
 
 interface ProductBannerProps {
-  sortBy: string;
   setSortBy: (arg0: string) => void;
   itemsPerPageFromBanner: (arg0: number) => void;
 }
 
 const ProductBanner: React.FC<ProductBannerProps> = ({
-  sortBy,
   setSortBy,
   itemsPerPageFromBanner,
 }) => {

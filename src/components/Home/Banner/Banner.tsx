@@ -17,6 +17,7 @@ const Banner = () => {
     slidesToScroll: 1,
     arrows: false,
     beforeChange: (prev: number, next: number) => {
+      console.log(prev);
       setDocActive(next);
     },
     appendDots: (dots: number) => (

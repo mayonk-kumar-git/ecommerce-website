@@ -58,6 +58,7 @@ const NewArrivals: React.FC = () => {
             price="44.00"
             color="Black"
             badge={true}
+            rating={5}
             des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
           />
         </div>
@@ -69,6 +70,7 @@ const NewArrivals: React.FC = () => {
             price="250.00"
             color="Black"
             badge={true}
+            rating={0.0}
             des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
           />
         </div>
@@ -80,6 +82,7 @@ const NewArrivals: React.FC = () => {
             price="80.00"
             color="Mixed"
             badge={true}
+            rating={0.0}
             des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
           />
         </div>
@@ -91,6 +94,7 @@ const NewArrivals: React.FC = () => {
             price="60.00"
             color="Mixed"
             badge={false}
+            rating={5}
             des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
           />
         </div>
@@ -102,6 +106,7 @@ const NewArrivals: React.FC = () => {
             price="60.00"
             color="Mixed"
             badge={false}
+            rating={5}
             des="Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic excepturi quibusdam odio deleniti reprehenderit facilis."
           />
         </div>

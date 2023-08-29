@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// import { FaPlus } from "react-icons/fa";
+import { useState } from "react";
 import { ImPlus } from "react-icons/im";
 import NavTitle from "./NavTitle";
 

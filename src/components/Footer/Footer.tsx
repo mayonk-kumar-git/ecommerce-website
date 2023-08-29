@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaFacebook,
-  FaYoutube,
   FaLinkedin,
   FaGithub,
   FaTwitter,

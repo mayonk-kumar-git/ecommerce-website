@@ -27,7 +27,6 @@ const Shop = () => {
             <ProductBanner
               itemsPerPageFromBanner={itemsPerPageFromBanner}
               setSortBy={setSortBy}
-              sortBy={sortBy}
             />
             <Pagination itemsPerPage={itemsPerPage} sortBy={sortBy} />
           </div>

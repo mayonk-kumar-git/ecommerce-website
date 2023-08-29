@@ -12,6 +12,7 @@ const defaultProductInfo: ProductDataType = {
   price: "0",
   color: "red",
   badge: false,
+  rating: 0.0,
   des: "Product description",
 };
 

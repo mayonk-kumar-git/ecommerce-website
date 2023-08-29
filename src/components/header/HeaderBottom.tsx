@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion";
-import { HiOutlineMenuAlt4 } from "react-icons/hi";
-import { FaSearch, FaUser, FaCaretDown, FaShoppingCart } from "react-icons/fa";
+import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { paginationItems } from "../../constants/constants";
@@ -13,7 +11,6 @@ const HeaderBottom = () => {
   const [showUser, setShowUser] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [showSearchBar, setShowSearchBar] = useState<boolean>(false);
   const navigate = useNavigate();
   const refCategory = useRef<HTMLDivElement>(null);
   const refUser = useRef<HTMLDivElement>(null);
@@ -71,7 +68,6 @@ const HeaderBottom = () => {
                             },
                           }
                         );
-                        setShowSearchBar(true);
                         setSearchQuery("");
                       }}
                       key={item._id}
