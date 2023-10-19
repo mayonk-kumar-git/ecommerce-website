@@ -1,4 +1,4 @@
-# Totality Corp Frontend Challenge
+# Ecom Website
 
 ## [Deployed website](https://64edc48b3b05b700087c1088--dreamy-daffodil-a61d4e.netlify.app/)
 
